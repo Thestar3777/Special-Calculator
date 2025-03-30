@@ -1,22 +1,37 @@
 #include <stdio.h>
 #include <ctype.h>
 
-int main(){
-
+int main()
+{
 
   char unit;
   float temp;
 
-  printf("Is the temp in F or C? ");
+  printf("\n---------------------------------------\n");
+  printf("\nWelcome to the temperature converter!\n");
+  printf("\nIs the temp in F or C? ");
   scanf("%c", &unit);
 
-  if (unit == 'C') {
-    printf("You chose Celcius");
+  unit = toupper(unit);
+
+  if (unit == 'C')
+  {
+    printf("\nEnter the temp in celcius: ");
+    scanf("%f", &temp);
+    temp = (temp * 9 / 5) + 32;
+    printf("\nThat temp in Farenheit is %.1f\n", temp);
+    printf("\n---------------------------------------");
   }
-  else if(unit == 'F'){
-    printf("You have chosen Farenheit");
+  else if (unit == 'F')
+  {
+    printf("\nEnter the temp in Farenheit: ");
+    scanf("%f", &temp);
+    temp = ((temp - 32) * 5) / 9;
+    printf("\nThe temp in Celcius is: %.1f\n", temp);
+    printf("\n---------------------------------------");
   }
-  else {
+  else
+  {
     printf("\n %c not valid!", unit);
   }
 
